@@ -1,11 +1,8 @@
 package com.algorithm.baek;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class B1012_유기농배추 {
 	static int[] dr = { 1, -1, 0, 0 };
@@ -79,6 +76,5 @@ public class B1012_유기농배추 {
 				}
 			}
 		}
-
 	}
 }
