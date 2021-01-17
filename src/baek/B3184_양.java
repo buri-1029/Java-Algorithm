@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 /*
-    비슷한 문제 : 1387 양치기꿍 - dfs
+    비슷한 문제 : 3187 양치기꿍 - dfs
                3184 양     - bfs
  */
 public class B3184_양 {
@@ -43,7 +43,7 @@ public class B3184_양 {
                     bfs(i,j);
                     if(ocnt > vcnt) vcnt = 0; // 양 > 늑대 : 늑대 = 0
                     else ocnt = 0; // 그렇지않으면 양 = 0
-                    oAns += ocnt; 
+                    oAns += ocnt;
                     vAns += vcnt;
                 }
             }
