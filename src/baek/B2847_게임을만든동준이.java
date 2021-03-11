@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class B2847_게임을만든동준이 {
     public static void main(String[] args) {
-        int cnt = 0;
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int arr[] = new int[N];
+        int ans = 0;
 
         for(int i = 0; i < N; i++){
             arr[i] = sc.nextInt();
@@ -20,10 +20,10 @@ public class B2847_게임을만든동준이 {
         for(int i = N-2; i >= 0; i--){
             if(arr[i] >= arr[i+1]){
                 int tmp = arr[i] - arr[i+1] + 1;
-                cnt += tmp;
+                ans += tmp;
                 arr[i] -= tmp;
             }
         }
-        System.out.println(cnt);
+        System.out.println(ans);
     }
 }
