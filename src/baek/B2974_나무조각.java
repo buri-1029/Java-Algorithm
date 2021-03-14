@@ -12,7 +12,7 @@ public class B2974_나무조각 {
         }
 
        for(int i = 0; i < N; i++){ // 다섯번 모두 돌면서
-           for(int j = 0; j < N - 1; j++){ 
+           for(int j = 0; j < N - 1; j++){
                if(arr[j] > arr[j + 1]){
                    int tmp = arr[j];
                    arr[j] = arr[j + 1];
