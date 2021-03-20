@@ -43,10 +43,10 @@ public class B5567_결혼식 {
         visit[start] = true;
 
         while (!Q.isEmpty()) {
-            int p = Q.poll();
+            Integer p = Q.poll();
             int size = adj[p].size();
             for (int i = 0; i < size; i++) {
-                 int q = adj[p].get(i);
+                 Integer q = adj[p].get(i);
                 if (!visit[q]) {
                     Q.add(q);
                     visit[q] = true;
