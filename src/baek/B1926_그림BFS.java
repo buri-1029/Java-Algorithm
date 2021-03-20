@@ -72,6 +72,6 @@ public class B1926_그림BFS {
                 a++;
             }
         }
-        area = Math.max(area, a); // 각 그림의 넓이 중 가장 넓은 것으로 갱신 
+        area = Math.max(area, a); // 각 그림의 넓이 중 가장 넓은 것으로 갱신
     }
 }
