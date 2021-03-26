@@ -1,0 +1,7 @@
+package programmers;
+
+public class Pn진수게임 {
+    public static void main(String[] args) {
+        
+    }
+}
