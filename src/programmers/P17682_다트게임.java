@@ -1,6 +1,6 @@
 package programmers;
 
-public class P다트게임 {
+public class P17682_다트게임 {
     public static void main(String[] args) {
         String str1 = "1S2D*3T";
         String str2 = "1D2S#10S";
