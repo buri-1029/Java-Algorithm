@@ -10,7 +10,6 @@ public class P68644_두개뽑아서더하기 {
 
     static public int[] solution(int[] numbers) {
         int[] answer = {};
-
         return answer;
     }
 }
