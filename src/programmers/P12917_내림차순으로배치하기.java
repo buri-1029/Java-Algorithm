@@ -22,6 +22,14 @@ public class P12917_내림차순으로배치하기 {
         Arrays.sort(tmp, Collections.reverseOrder());
         answer = Long.parseLong(String.join("", tmp));
 
+       // String 배열 -> int 배열로 변환
+//        int[] arr = new int[tmp.length];
+//        for(int i = 0;i < tmp.length; i++){
+//            arr[i] = Integer.parseInt(tmp[i]);
+//        }
+//
+//        int[] arr = Arrays.stream(tmp).mapToInt(Integer::parseInt).toArray();
+
         return answer;
     }
 
