@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.Arrays;
 
-public class 장 {
+public class P12935_제일작은수제거하기 {
     public static void main(String[] args) {
         int[] arr1 = {4,3,2,1};
         int[] arr2 = {10};
@@ -24,7 +24,7 @@ public class 장 {
             return answer2;
         }
 
-        // 가 작은 수 찾기
+        // 가장 작은 수 찾기
         for (int n : arr) {
             if (n < min) {
                 min = n;
