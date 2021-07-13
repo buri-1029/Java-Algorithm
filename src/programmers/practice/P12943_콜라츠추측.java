@@ -1,4 +1,4 @@
-package programmers;
+package programmers.practice;
 
 public class P12943_콜라츠추측 {
     public int solution(int num) {
