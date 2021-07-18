@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 public class P12921_소수찾기 {
     public static void main(String[] args) {

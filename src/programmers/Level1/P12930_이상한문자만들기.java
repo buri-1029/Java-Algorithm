@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 public class P12930_이상한문자만들기 {
     /*

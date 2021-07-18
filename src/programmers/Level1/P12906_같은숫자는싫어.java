@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 import java.util.ArrayList;
 import java.util.Arrays;

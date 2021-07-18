@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 public class P12931_자릿수더하기 {
     public static void main(String[] args) {

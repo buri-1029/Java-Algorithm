@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 public class P12903_가운데글자가져오기 {
     public static void main(String[] args) {

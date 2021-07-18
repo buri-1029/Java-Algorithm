@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 public class P12943_콜라츠추측 {
     public int solution(int num) {

@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 public class P76501_음양더하기 {
     public static void main(String[] args) {

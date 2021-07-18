@@ -1,4 +1,4 @@
-package programmers.Level1.practice;
+package programmers.Level1;
 
 public class P12916_문자열내p와y의개수 {
     public static void main(String[] args) {
