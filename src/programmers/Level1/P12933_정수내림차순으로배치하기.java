@@ -5,12 +5,12 @@ import java.util.Arrays;
 public class P12933_정수내림차순으로배치하기 {
     public static void main(String[] args) {
         long n = 118372;
-        long answer = solution1(n);
+        long answer = solution(n);
         System.out.println(answer);
 
     }
 
-    private static long solution1(long n) {
+    private static long solution(long n) {
         long answer = 0;
         String[] tmp = String.valueOf(n).split("");
         Arrays.sort(tmp);
