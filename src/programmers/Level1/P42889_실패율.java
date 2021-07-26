@@ -16,16 +16,16 @@ public class P42889_실패율 {
     }
 
     private static int[] solution(int n, int[] stages) {
-        int[] answer = new int[n];
+        // 각 스테이지에 도달하지 못한 플레이어 수 저장
         int[] tmp = new int[n + 1];
         for(int i = 0; i < stages.length; i++){
             tmp[stages[i]-1]++;
         }
 
-        int before = 0; // 이전 스테이지까지 클리어하지 못한 사용자 수 총합
+        int before = 0; // 이전 스테이지까지 클리어하지 못한 플레이어 수 총합
         Map<Integer, Double> map = new HashMap<>(n);
         for(int i = 0; i < n; i++){
-            // 실패율 = 클리어 X / 스테이지 도달 O
+            // 실패율 = 클리어하지 못한 플레이어의 수/(스테이지에 도달한 플레이어 수 = 총 플레이어 수 - before)
             double fail = (double)tmp[i]/(double)(stages.length - before);
             map.put(i + 1, fail);
             before += tmp[i];
@@ -42,10 +42,10 @@ public class P42889_실패율 {
             }
         });
 
-        for(int i = 0; i < n; i++){
+        int[] answer = new int[n];
+        for(int i = 0; i < n; i++) {
             answer[i] = list.get(i).getKey();
         }
-
 //        int i = 0;
 //        for (Iterator<Map.Entry<Integer, Double>> iter = list.iterator(); iter.hasNext();) {
 //            Map.Entry<Integer, Double> entry = iter.next();
