@@ -23,7 +23,7 @@ public class P42889_실패율 {
         }
 
         int before = 0; // 이전 스테이지까지 클리어하지 못한 플레이어 수 총합
-        Map<Integer, Double> map = new HashMap<>(n);
+        Map<Integer, Double> map = new HashMap<>(n); // <스테이지, 실패율>
         for(int i = 0; i < n; i++){
             // 실패율 = 클리어하지 못한 플레이어의 수/(스테이지에 도달한 플레이어 수 = 총 플레이어 수 - before)
             double fail = (double)tmp[i]/(double)(stages.length - before);
@@ -31,7 +31,7 @@ public class P42889_실패율 {
             before += tmp[i];
         }
 
-        // value 기준 내림차순, key 기준 오름차순 정렬
+        // value(실패율) 기준 내림차순, key(스테이지) 기준 오름차순 정렬
         List<Map.Entry<Integer, Double>> list = new LinkedList<>(map.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<Integer, Double>>() {
             @Override
