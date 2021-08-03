@@ -25,18 +25,22 @@ public class P77484_로또의최고순위와최저순위 {
     }
 
     private static int[] solution(int[] lottos, int[] win_nums) {
-        int[] answer = new int[2];
+        // 인덱스 : 6 - 일치하는 번호 개수, 원소 : 순위
         int[] ranking = {1, 2, 3, 4, 5, 6, 6};
+
+        // max : 일치하는 번호 개수(+ 0의 개수), min : 일치하지 않는 번호 개수
         int max = 0, min = 0;
 
         ArrayList<Integer> list = new ArrayList<>();
         for(int n : win_nums) list.add(n);
 
+        // max 와 min 구하기
         for(int lotto : lottos){
             if(list.contains(lotto) || lotto == 0) max++;
-            if(!list.contains(lotto) || lotto == 0) min++;
+            if(!list.contains(lotto)) min++;
         }
 
+        int[] answer = new int[2];
         answer[0] = ranking[6 - max];
         answer[1] = ranking[min];
 
