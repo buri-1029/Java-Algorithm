@@ -1,6 +1,5 @@
 package baek.bronze;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class B3460_이진수 {
@@ -12,19 +11,21 @@ public class B3460_이진수 {
 		for (int t = 0; t < T; t++) {
 			int n = scan.nextInt();
 
-			ArrayList<Integer> index = new ArrayList<>();
+			StringBuilder tmp = new StringBuilder();
 			while (true) {
 				if (n == 0 || n == 1) {
-					index.add(n % 2);
+					tmp.append(n % 2);
 					break;
 				}
 
-				index.add(n % 2);
+				tmp.append(n % 2);
 				n /= 2;
 			}
 
-			for (int i = 0; i < index.size(); i++) {
-				if (index.get(i) == 1) {
+			String[] arr = tmp.toString()
+							  .split("");
+			for (int i = 0; i < arr.length; i++) {
+				if (arr[i].equals("1")) {
 					System.out.print(i + " ");
 				}
 			}
