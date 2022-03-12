@@ -28,6 +28,8 @@ public class B1920_수찾기 {
 
 		for (int i = 0; i < M; i++) {
 
+			// Arrays 클래스의 binarySearch 메소드
+			// if (Arrays.binarySearch(arr, Integer.parseInt(st.nextToken())) >= 0) {
 			if (binarySearch(Integer.parseInt(st.nextToken())) >= 0) {
 				sb.append(1)
 				  .append('\n');
