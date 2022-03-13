@@ -22,6 +22,16 @@ public class B9625_BABBA {
 			B[i] = B[i - 2] + B[i - 1];
 		}
 
+		//		int A = 0;
+		//		int B = 1;
+		//		int sum = 0;
+		//
+		//		for (int i = 1; i < K; i++) {
+		//			sum = A + B;
+		//			A = B;
+		//			B = sum;
+		//		}
+
 		System.out.println(A[K] + " " + B[K]);
 	}
 
