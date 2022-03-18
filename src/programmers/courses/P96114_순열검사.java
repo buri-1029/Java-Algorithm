@@ -14,8 +14,6 @@ public class P96114_순열검사 {
 	}
 
 	public static boolean solution(int[] arr) {
-		boolean answer = true;
-
 		int n = arr.length;
 		int[] check = new int[n];
 
@@ -23,16 +21,18 @@ public class P96114_순열검사 {
 			check[i] = i + 1;
 		}
 
-		Arrays.sort(arr);
+		Arrays.sort(arr); // O(nlogn)
 
-		for (int i = 0; i < n; i++) {
-			if (arr[i] != check[i]) {
-				answer = false;
-				break;
-			}
-		}
+		return Arrays.equals(arr, check); // O(n)
 
-		return answer;
+		//		boolean answer = true;
+		//		for (int i = 0; i < n; i++) {
+		//			if (arr[i] != check[i]) {
+		//				answer = false;
+		//				break;
+		//			}
+		//		}
+
 	}
 
 }
