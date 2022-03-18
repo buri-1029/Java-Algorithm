@@ -1,8 +1,10 @@
 package programmers.level1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class P02334_신고결과받기 {
 
@@ -19,27 +21,23 @@ public class P02334_신고결과받기 {
 	}
 
 	public static int[] solution(String[] id_list, String[] report, int k) {
-		ArrayList<String> idList = new ArrayList<>(Arrays.asList(id_list));
-		HashMap<String, Integer> reportCnt = new HashMap<>();
+		List<String> reportList = Arrays.stream(report)
+										.distinct()
+										.collect(Collectors.toList());
 
-		ArrayList<String> reportList = new ArrayList<>(report.length);
-		for (String str : report) {
-			if (!reportList.contains(str)) {
-				reportList.add(str);
-			}
-		}
+		HashMap<String, Integer> cnt = new HashMap<>();
 
 		for (String str : reportList) {
-			String[] tmp = str.split(" ");
-			int count = reportCnt.getOrDefault(tmp[1], 0);
-			reportCnt.put(tmp[1], count + 1);
+			String tmp = str.split(" ")[1];
+			cnt.put(tmp, cnt.getOrDefault(tmp, 0) + 1);
 		}
 
+		List<String> idList = new LinkedList<>(Arrays.asList(id_list));
 		int[] answer = new int[id_list.length];
 
 		for (String str : reportList) {
 			String[] tmp = str.split(" ");
-			if (reportCnt.get(tmp[1]) >= k) {
+			if (cnt.get(tmp[1]) >= k) {
 				int idx = idList.indexOf(tmp[0]);
 				answer[idx] += 1;
 			}
