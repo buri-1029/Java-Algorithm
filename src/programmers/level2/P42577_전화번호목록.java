@@ -1,7 +1,6 @@
 package programmers.level2;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class P42577_전화번호목록 {
 
@@ -14,19 +13,14 @@ public class P42577_전화번호목록 {
 	}
 
 	private static boolean solution(String[] phone_book) {
-		Map<String, Integer> map = new HashMap<>();
+		Arrays.sort(phone_book);
 
-		for (int i = 0; i < phone_book.length; i++) {
-			map.put(phone_book[i], i);
-		}
-
-		for (int i = 0; i < phone_book.length; i++) {
-			for (int j = 0; j < phone_book[i].length(); j++) {
-				if (map.containsKey(phone_book[i].substring(0, j))) {
-					return false;
-				}
+		for (int i = 1; i < phone_book.length; i++) {
+			if (phone_book[i].startsWith(phone_book[i - 1])) {
+				return false;
 			}
 		}
+
 		return true;
 	}
 }
