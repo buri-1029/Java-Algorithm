@@ -1,11 +1,6 @@
 package programmers.level2;
 
-import java.util.Arrays;
-
 public class P42883_큰수만들기 {
-
-	static int answer = 0;
-	static int[] arr, select;
 
 	public static void main(String[] args) {
 		String number = "1924";
@@ -18,29 +13,19 @@ public class P42883_큰수만들기 {
 	}
 
 	public static String solution(String number, int k) {
-		arr = Arrays.stream(number.split(""))
-					.mapToInt(Integer::parseInt)
-					.toArray();
-		select = new int[number.length() - k];
-		combination(0, 0);
-		return String.valueOf(answer);
-	}
-
-	private static void combination(int idx, int k) {
-		if (k == select.length) {
-			int sum = 0, tmp = 1;
-			for (int i = select.length - 1; i >= 0; i--) {
-				sum += (select[i] * tmp);
-				tmp *= 10;
+		StringBuilder answer = new StringBuilder();
+		int idx = 0;
+		for (int i = 0; i < number.length() - k; i++) {
+			int max = 0;
+			for (int j = idx; j <= k + i; j++) {
+				if (max < number.charAt(j) - '0') {
+					max = number.charAt(j) - '0';
+					idx = j + 1;
+				}
 			}
-			answer = Math.max(answer, sum);
-			return;
+			answer.append(max);
 		}
-
-		for (int i = idx; i < arr.length; i++) {
-			select[k] = arr[i];
-			combination(i + 1, k + 1);
-		}
-
+		return answer.toString();
 	}
+
 }
