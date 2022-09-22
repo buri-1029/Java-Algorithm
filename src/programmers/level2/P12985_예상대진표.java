@@ -8,21 +8,12 @@ public class P12985_예상대진표 {
 
 	public static int solution(int n, int a, int b) {
 		int answer = 0;
-		int people = n;
-		int range = 0;
-		int group = 1;
 
-		while (true) {
+		while (a != b) {
+			a = (a / 2) + (a % 2);
+			b = (b / 2) + (b % 2);
+
 			answer++;
-
-			group = people / 2;
-			range = n / group;
-
-			if ((a - 1) / range == (b - 1) / range) {
-				break;
-			}
-
-			people /= 2;
 		}
 
 		return answer;
