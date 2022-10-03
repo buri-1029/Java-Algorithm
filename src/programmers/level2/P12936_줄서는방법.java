@@ -1,12 +1,10 @@
 package programmers.level2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class P12936_줄서는방법 {
-
-	static int num, cnt = 0;
-	static int[] arr, select, answer;
-	static boolean[] visit;
 
 	public static void main(String[] args) {
 		int n = 3;
@@ -16,40 +14,26 @@ public class P12936_줄서는방법 {
 	}
 
 	public static int[] solution(int n, long k) {
-		num = n;
+		int[] answer = new int[n];
+		List<Integer> list = new ArrayList<>();
 
-		arr = new int[n];
-		select = new int[n];
-		answer = new int[n];
-		visit = new boolean[n];
+		long tmp = 1;
 
-		for (int i = 0; i < n; i++) {
-			arr[i] = i + 1;
+		for (int i = 1; i <= n; i++) {
+			list.add(i);
+			tmp *= i;
 		}
 
-		permutation(0, k);
+		k--;
+		int idx = 0;
+
+		while (idx < n) {
+			tmp /= n - idx;
+			answer[idx++] = list.remove((int) (k / tmp));
+			k %= tmp;
+		}
 
 		return answer;
 	}
 
-	private static void permutation(int n, long k) {
-		if (n == select.length) {
-			cnt++;
-
-			if (cnt == k) {
-				answer = Arrays.copyOf(select, select.length);
-			}
-
-			return;
-		}
-
-		for (int i = 0; i < arr.length; i++) {
-			if (!visit[i]) {
-				visit[i] = true;
-				select[n] = arr[i];
-				permutation(n + 1, k);
-				visit[i] = false;
-			}
-		}
-	}
 }
