@@ -34,7 +34,6 @@ public class B2504_괄호의값 {
 				} else if (str.charAt(i - 1) == '[') {
 					answer += tmp;
 				}
-
 				stack.pop();
 				tmp /= 3;
 			}
