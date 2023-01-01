@@ -2,38 +2,42 @@ package baek.silver;
 
 import java.util.Scanner;
 /*
- * 다시 해보기
- * 1. i번째 오는 배열은 0 ~ i-1 까지의 배열을 한번씩 다시 돌아서 체크해야한다.
- * 2. a[i-1] < a[i] 이런 경우가 올 수 있다.
+ * 다시 해보기(st-lab 블로그 참고)
+ * - 최장 증가 부분 수열(LIS) : 주어진 수열에서 오름차순으로 구성 가능한 원소들을 선택하여 최대 길이를 찾아내는 것
  */
 
 public class B11053_가장긴증가하는부분수열 {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		int max = 0;
-		int[] D = new int[N + 1];
-		int[] A = new int[N + 1];
+		Scanner scan = new Scanner(System.in);
+		int N = scan.nextInt();
+
+		int[] arr = new int[N];
+		int[] dp = new int[N];
 
 		for (int i = 0; i < N; i++) {
-			A[i] = sc.nextInt();
-			D[i] = 1;
+			arr[i] = scan.nextInt();
 		}
 
+		// Bottom-Up(반복문) 방식
 		for (int i = 0; i < N; i++) {
-			for (int j = 0; j <= i; j++) {
-				if (A[j] < A[i] && D[j] >= D[i]) {
-					D[i] = D[j] + 1;
+			dp[i] = 1;
+
+			// 0 ~ i 이전 원소들 탐색
+			for (int j = 0; j < i; j++) {
+
+				// j번째 원소가 i번째 원소보다 작으면서 i번째 dp가 j번째 dp+1 값보다 작은경우
+				if (arr[j] < arr[i] && dp[i] < dp[j] + 1) {
+					dp[i] = dp[j] + 1;    // j번째 원소의 +1 값이 i번째 dp가 된다.
 				}
 			}
 		}
 
+		int max = -1;
 		for (int i = 0; i < N; i++) {
-			if (D[i] > max) {
-				max = D[i];
-			}
+			max = Math.max(dp[i], max);
 		}
+
 		System.out.println(max);
 	}
 }
