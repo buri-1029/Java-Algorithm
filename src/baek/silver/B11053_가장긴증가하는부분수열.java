@@ -8,12 +8,15 @@ import java.util.Scanner;
 
 public class B11053_가장긴증가하는부분수열 {
 
+	static int[] arr;
+	static Integer[] dp;
+
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int N = scan.nextInt();
 
-		int[] arr = new int[N];
-		int[] dp = new int[N];
+		arr = new int[N];
+		dp = new Integer[N];
 
 		for (int i = 0; i < N; i++) {
 			arr[i] = scan.nextInt();
@@ -38,6 +41,36 @@ public class B11053_가장긴증가하는부분수열 {
 			max = Math.max(dp[i], max);
 		}
 
+		// Top-Down(재귀) 방식
+		/*
+		 * 		// 0 ~ N-1 까지 모든 부분수열 탐색
+		 * 		for (int i = 0; i < N; i++) {
+		 * 			LIS(i);
+		 *      }
+		 *
+		 * 		int max = dp[0];
+		 * 		for(int i = 1; i < N; i++) {
+		 *			max = Math.max(max, dp[i]);
+		 *		}
+		 */
+
 		System.out.println(max);
+	}
+
+	public static int LIS(int N) {
+
+		// 만약 탐색하지 않던 위치의 경우
+		if (dp[N] == null) {
+			dp[N] = 1;    // 1로 초기화
+
+			// N-1 부터 0까지중 N보다 작은 값들을 찾으면서 재귀호출.
+			for (int i = N - 1; i >= 0; i--) {
+				if (arr[i] < arr[N]) {
+					dp[N] = Math.max(dp[N], LIS(i) + 1);
+				}
+			}
+		}
+
+		return dp[N];
 	}
 }
