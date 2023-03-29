@@ -3,12 +3,12 @@ package programmers.level2;
 public class P12899_124나라의숫자 {
 
 	public static void main(String[] args) {
-		int n = 1;
-		System.out.println(solution(n));
+		System.out.println(solution(1));
+		System.out.println(solution(4));
 	}
 
-	private static String solution(int n) {
-		String answer = "";
+	public static String solution(int n) {
+		StringBuilder answer = new StringBuilder();
 
 		while (n > 0) {
 			int tmp = n % 3;
@@ -18,9 +18,10 @@ public class P12899_124나라의숫자 {
 				tmp = 4;
 				n -= 1;
 			}
-			answer = tmp + answer;
+
+			answer.insert(0, tmp);
 		}
 
-		return answer;
+		return answer.toString();
 	}
 }
